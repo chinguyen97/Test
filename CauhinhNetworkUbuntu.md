@@ -1,7 +1,7 @@
-## Cấu hình network Ubuntu server 14 và CentOS7
+## Cấu hình network Ubuntu Server 14.04 và CentOS7
 ### A. UbuntuServer 
 
-### 1. Cấu hình IP tamk thời
+### 1. Cấu hình IP tạm thời
 - Cấu hình IP tạm thời: Sẽ mất sau khi reboot máy tính
 
 	+ Câu lệnh: 
@@ -9,6 +9,7 @@
 ifconfig ethX IP-address netmask net-address
 ```
 Ví dụ: `ifconfig eth0 192.168.1.2 netmask 255.255.255.0`
+	
 	+ Đặt default gateway
 ```
 route add default gw ip-getway {interface-name}
@@ -39,7 +40,7 @@ Hoặc : ```service networking restart```
 ### 3. Cấu hình IP động
 Nhận địa chỉ IP một cách tự động từ một DHCP server
 
-Tương tự như cấu hình IP tĩnh. tahy từ khóa **static** bằng **dhcp**
+Tương tự như cấu hình IP tĩnh. Thay từ khóa **static** bằng **dhcp**
 ```
 auto eth0
 iface eth0 inet dhcp
@@ -50,27 +51,28 @@ iface eth0 inet dhcp
 	+ ifdown < tên card mang>
 - Xem có bao nhiêu giao diện Ethernet
 
-	`ifconfig ­a | grep eth`
+	+ `ifconfig ­a | grep eth`
 
 - Xem tất cả giao diện mạng
 
-`ifconfig -a`
+	+ `ifconfig -a`
 
-Hoặc : `ip a`
+	+ Hoặc : `ip a`
 
 - Xem cấu hình card eth0
 
-`ifconfig eth0`
+	+ `ifconfig eth0`
 
-Hoặc: `ip a s eth0`
+	+ Hoặc: `ip a s eth0`
 
 - Kiểm tra thông tin DNS
 
-`Cat /etc/resolv.conf`
+	+ `Cat /etc/resolv.conf`
 
 - Xem đường đi 
 
-`route –n` Hoặc `ip r`
+	+ `route –n` 
+	+ Hoặc `ip r`
 
 ### B. Cấu hình Network CentOS7
 
@@ -114,6 +116,7 @@ PREFIX=24
 ```
 
 Dưới đây là các option cần chú ý:
+
 |Option|Mô tả|
 |---|---|
 |DEVICE=ens33|Tên card mạng|
@@ -131,9 +134,8 @@ Các dòng cấu hình ko phân biệt thứ tự ưu tiên chỉ cần có nộ
 
 - Khởi động lại dịch vụ mạng Network 
 
-`service network restart`
-
-Hoặc  `systemctl restart network`
+	+ `service network restart`
+	+ Hoặc  `systemctl restart network`
 
 ### 2. Cấu hình IP với chương trình dịch vụ Network Manager
 
@@ -145,6 +147,7 @@ yum install NetworkManager-tui –y
 - Muốn dùng Network Manager để quản lý các card mạng trước tiên phải thêm dòng **NM_CONRTROLLED=yes** vào file **/etc/sysconfig/network-scripts/ifcfg-ens33**
 
 - Khởi động dịch vụ Network Manager 
+
 ```
 systemctl start NetworkManager.service 
 ```

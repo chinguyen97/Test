@@ -86,7 +86,7 @@
 ### 7. Lưu và Thoát khỏi vi
 
 |Lệnh|Mô tả|
-|:q|
+|:q|Thoát khỏi vi|
 |:q!|Lệnh để thoát khỏi vi mà không lưu các chỉnh sửa|
 |:w|Lưu và không thoát|
 |:wq hoặc ZZ|Lưu và thoát|
@@ -138,7 +138,7 @@ Lệnh  **:%s/chữ cần thay thế/ chữ được thay thế/g**
 Ví dụ: **:%s/Windows/Linux/g**
 Chữ **Windows** sẽ được thay thế bằng chữ **linux**
 
-- Sử dụng dấu **.**để lặp lại hành động vừa làm
+- Sử dụng dấu **.** để lặp lại hành động vừa làm
 
 Ví dụ người dùng gõ i để insert dòng chữ “hello world”, sau đó chuyển sang chế độ command mode bằng phím **Esc**, nhảy xuống dòng và gõ . , dòng chữ “hello world” sẽ hiện ra
 
