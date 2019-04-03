@@ -1,6 +1,18 @@
 ## Cấu hình network Ubuntu Server 14.04 và CentOS7
+
+A. [UbuntuServer14](#Ubuntu)
+1. [Cấu hình IP tạm thời](#iptamthoi)
+2. [Cấu hình IP tĩnh](#iptinh)
+3. [Cấu hình IP động](#ipdong)
+4. [Một số câu lệnh khác](#caulenhkhac)
+B. [CentOS7](#centos7)
+1. [Cấu hình Ip tĩnh bằng cách sửa file cấu hình](#suafilecauhinh)
+2. [Cấu hình IP với chương trình dịch vụ Network Manager](nmtui)
+3. [Một số câu lệnh khác](#caulenhkhac1)
+<a name="Ubuntu"></a>
 ### A. UbuntuServer 
 
+<a name="iptamthoi"></a>
 ### 1. Cấu hình IP tạm thời
 - Cấu hình IP tạm thời: Sẽ mất sau khi reboot máy tính
 
@@ -16,6 +28,7 @@ route add default gw ip-getway {interface-name}
 ```
 Ví dụ: `route add default gw 192.168.1.1 eth0`
 
+<a name="iptinh"></a>
 ### 2. Cấu hình Ip tĩnh 
 Cấu hình vẫn giữ sau khi reboot máy tính
 
@@ -37,6 +50,7 @@ iface eth0 inet static
 
 Hoặc : ```service networking restart```
 
+<a name="ipdong"></a>
 ### 3. Cấu hình IP động
 Nhận địa chỉ IP một cách tự động từ một DHCP server
 
@@ -45,6 +59,8 @@ Tương tự như cấu hình IP tĩnh. Thay từ khóa **static** bằng **dhcp
 auto eth0
 iface eth0 inet dhcp
 ```
+
+<a name="caulenhkhac"></a>
 ### 4. Các câu lệnh khác
 - Tắt/mở giao diện mạng
 	+ ifup < tên card mạng>
@@ -74,6 +90,7 @@ iface eth0 inet dhcp
 	+ `route –n` 
 	+ Hoặc `ip r`
 
+<a name="centos7"></a>
 ### B. Cấu hình Network CentOS7
 
 - Liệt kê các card mạng : 
@@ -82,6 +99,7 @@ iface eth0 inet dhcp
 Hoặc có thể sử dụng lệnh `nmcli` của chương trình dịch vụ **NetworkManager**. Card nào hiện thị trạng thái connected là card đó đã được cấu hình để quản lý bởi chương trình Network Manager.
 Câu lệnh: `nmcli –p dev`
 
+<a name="suafilecauhinh"></a>
 ### 1. Cấu hình Ip tĩnh bằng cách sửa file cấu hình
 
 Giả sử card mạng có tên ens33
@@ -137,6 +155,7 @@ Các dòng cấu hình ko phân biệt thứ tự ưu tiên chỉ cần có nộ
 	+ `service network restart`
 	+ Hoặc  `systemctl restart network`
 
+<a name="nmtui"></a>
 ### 2. Cấu hình IP với chương trình dịch vụ Network Manager
 
 NetworkManager là một chương trình/dịch vụ hỗ trợ điều khiển quản lý mạng cũng như cấu hình hệ thống mạng trên CentOS 7. Mặc định thì chương trình này đã được cài đặt từ ban đầu. Nhưng cần phải cài đặt chương trình **NetworkManager Text User Interface-nmtui** nhằm cung cấp giao diện text cấu hình linh động tương tác với Network Manager ngay trên Terminal hoặc Console kết nối đến hệ thống thay vì phải dùng lệnh riêng của NetworkManager.
@@ -161,6 +180,7 @@ Xuất hiện giao diện như hình:
 
 - Khởi động lại dịch vụ mạng Network 
 
+<a name="caulenhkhac1"></a>
 ### 3. Một số câu lệnh khác
 - Kiểm tra thông tin Ip tĩnh 
 	+ **ip a**

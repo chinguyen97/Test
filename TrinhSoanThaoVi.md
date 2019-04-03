@@ -1,5 +1,15 @@
 ## Trình Soạn Thảo VI
 
+1. [Giới thiệu](#Gioithieu)
+2. [Tạo file, mở file](#taofile,mofile)
+3. [Chỉnh sửa file](#chinhsuafile)
+4. [Di chuyển trong file](#Dichuyen)
+5. [Xóa ký tự](#Xoa)
+6. [Sao chép, dán, di chuyển](#Saochep,dan)
+7. [Lưu và thoát khỏi vi](#Lưu,thoat)
+8. [Các lệnh nâng cao](#Lenhnangcao)
+9. [Lệnh set](#Lenhset)
+<a name="Gioithieu"></a>
 ### 1. Giới thiệu
 
 **Vi** có 2 chế độ:
@@ -11,13 +21,15 @@
 
 Ấn **Esc** để chuyển từ **insert mode** sang **command mode** 
 
+<a name="taofile,mofile"></a>
 ### 2. Tạo file, mở file
 
 - Lệnh **vi filename**: Tạo một file mới nếu nó đã không tồn tại, nếu không thì mở một file đang tồn tại.
 - Lệnh **vi -R filename**: Mở một file đang tồn tại trong chế độ chỉ đọc.
 - Lệnh **view filename**: Mở một file đang tồn tại trong chế độ chỉ đọc.
 
-### 3. Chỉnh sửa file trong Unix/Linux
+<a name="chinhsuafile"></a>
+### 3. Chỉnh sửa file 
 Để chỉnh sửa file, bạn cần trong chế độ chèn. Có nhiều cách để vào chế độ chèn từ chế độ lệnh.
 
 |Lệnh|Mô tả|
@@ -29,6 +41,7 @@
 |o|Tạo một dòng mới để nhập văn bản dưới vị trí con trỏ hiện tại.|
 |O|Tạo một dòng mới để nhập văn bản trên vị trí con trỏ hiện tại.|
 
+<a name="Dichuyen"></a>
 ### 4. Di chuyển trong một file 
 
 |Lệnh|Miêu tả|
@@ -58,6 +71,7 @@
 |nL|Di chuyển tới dòng thứ n tính từ cuối cùng của màn hình.|
 |:x|Dấu hai chấm theo sau bởi một số sẽ đặt vị trí của con trỏ| trên dòng số x|
 
+<a name="Xoa"></a>
 ### 5. Xóa ký tự
 
 |Lệnh|Miêu tả|
@@ -72,6 +86,7 @@
 |:1,8d|Xóa từ dòng 1 cho đến dòng 8 trong file.|
 |:10,$d|Xóa từ dóng 10 đến dòng cuối cùng của file|
 
+<a name="Saochep,dan"></a>
 ### 6. Các lệnh sao chép, dán, di chuyển 
 
 |Lệnh|Mô tả|
@@ -83,15 +98,18 @@
 |:8,16 co 32|Copy dòng 8 đến 16 đến điểm sau dòng 32.|
 |:3,16 m 32|Di chuyển dòng 8->16 đến điểm sau dòng 32.|
 
+<a name="Luu,thoat"></a>
 ### 7. Lưu và Thoát khỏi vi
 
 |Lệnh|Mô tả|
+|----|----|
 |:q|Thoát khỏi vi|
 |:q!|Lệnh để thoát khỏi vi mà không lưu các chỉnh sửa|
 |:w|Lưu và không thoát|
 |:wq hoặc ZZ|Lưu và thoát|
 |:w newfile.txt|save nội dung của file hiện tại vào một file mới là newfile.txt tương tựa “save as” bên Win Word|
 
+<a name="Lenhnangcao"></a>
 ### 8. Các lệnh nâng cao
 
 |Lệnh|Miêu tả|
@@ -114,6 +132,7 @@
 |:r file|Đọc file và chèn nó sau dòng hiện tại.|
 |:nr file|Đọc file và chèn nó sau dòng thứ n.|
 
+<a name="Lenhset"></a>
 ### 9. Các lệnh set 
 
 |Lệnh|Miêu tả|
